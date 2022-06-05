@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>Teacher教师管理</title>
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/static/bootstrap-3.4.1-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+<!--Hello I am V of TeahcerController\index <br>
+{:var_dump($teachers)}-->
+<table>
+  <tr>
+    <th>序号</th>
+    <th>ID</th>
+    <th>姓名</th>
+    <th>性别</th>
+    <th>邮箱</th>
+    <th>用户名</th>
+  </tr>
+    {volist name="teachers" id="teacher" key="key"}
+  <tr>
+    <td>{$key}</td>
+      <td>{$teacher.id}</td>
+      <td>{$teacher->getdata('name')}</td>
+      <!--<td>{eq name='teacher->getData("sex")' value='0'}男{else/}女{/eq}</td>-->
+      <td>{eq name='teacher.sex' value='0'}男{else/}女{/eq}</td>
+      <td>{$teacher->getData('email')}</td>
+      <td>{$teacher->getData('username')}</td>
+  </tr>
+   {/volist} 
+</table>
+  {:dump($teachers)}  
+</body>
+</html>
